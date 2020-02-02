@@ -6,7 +6,7 @@ final class QJStackedLEDTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(QJStackedLED().text, "Hello, World!")
+        XCTAssertEqual(QJStackedLED().controlDescription, "Stacked LED Control")
     }
 
     static var allTests = [
