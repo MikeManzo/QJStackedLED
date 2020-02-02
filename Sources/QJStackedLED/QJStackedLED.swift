@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if os(iOS) || os(watchOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 
     public typealias QJViewController = UIViewController
@@ -151,7 +151,7 @@ open class QJStackedLED: QJView {
     fileprivate var dangerBarIdx = 8
 
     fileprivate func updateControl() {
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(tvOS)
             setNeedsDisplay()
         #elseif os(macOS)
             display()
@@ -159,7 +159,7 @@ open class QJStackedLED: QJView {
     }
     
     fileprivate func setup() {
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(tvOS)
             clearsContextBeforeDrawing = false
             isOpaque = false
             backgroundColor = QJColor.black
@@ -185,7 +185,7 @@ open class QJStackedLED: QJView {
     public func resetPeak() {
         peakValue = -.infinity
         peakBarIdx = -1
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(tvOS)
             setNeedsDisplay()
         #elseif os(macOS)
             display()
@@ -194,7 +194,7 @@ open class QJStackedLED: QJView {
 
     override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(tvOS)
             setNeedsDisplay()
         #elseif os(macOS)
             display()
@@ -227,7 +227,7 @@ open class QJStackedLED: QJView {
         rectBar.size.width = isVertical ? rectBounds.size.width - 2 : CGFloat(barSize)
         rectBar.size.height = isVertical ? CGFloat(barSize) : rectBounds.size.height - 2
         // Get stuff needed for drawing
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(tvOS)
             ctx = UIGraphicsGetCurrentContext()!
         #elseif os(macOS)
             ctx = NSGraphicsContext.current!.cgContext
@@ -235,7 +235,7 @@ open class QJStackedLED: QJView {
             ctx.clear(self.bounds)
 
         // Fill background
-        #if os(iOS) || os(watchOS)
+        #if os(iOS) || os(tvOS)
             ctx.setFillColor(backgroundColor!.cgColor)
         #elseif os(macOS)
             ctx.setFillColor(layer!.backgroundColor!)
@@ -300,7 +300,7 @@ open class QJStackedLED: QJView {
                 // Set up color components from passed QJColor object
                 if clr.numberOfComponents == 4 {
                     let ci = CIColor(color: a_clr)
-                    #if os(iOS) || os(watchOS)
+                    #if os(iOS) || os(tvOS)
                         aComponents.append(ci.red)
                         aComponents.append(ci.green)
                         aComponents.append(ci.blue)
@@ -339,7 +339,7 @@ open class QJStackedLED: QJView {
             // No, draw the bar as background color overlayed with a mostly
             // ... transparent version of the passed color
             let fillClr: CGColor = a_clr.cgColor.copy(alpha: 0.2)!
-            #if os(iOS) || os(watchOS)
+            #if os(iOS) || os(tvOS)
                 a_ctx.setFillColor(backgroundColor!.cgColor)
             #elseif os(macOS)
                 a_ctx.setFillColor(layer!.backgroundColor!)
