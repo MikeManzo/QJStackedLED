@@ -6,22 +6,18 @@
 //  Copyright © 2020 Mike Manzo. All rights reserved.
 //
 
-import Foundation
 #if os(macOS)
     import AppKit
-
     public typealias QJViewController = NSViewController
     public typealias QJColor = NSColor
     public typealias QJFont = NSFont
     public typealias QJView = NSView
 #elseif os(iOS) || os(tvOS)
     import UIKit
-
     public typealias QJViewController = UIViewController
     public typealias QJColor = UIColor
     public typealias QJFont = UIFont
     public typealias QJView = UIView
-
 #endif
 
 /// A view for showing a single number on an LED display
