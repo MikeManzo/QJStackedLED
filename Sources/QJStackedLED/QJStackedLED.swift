@@ -12,7 +12,7 @@
     public typealias QJColor = NSColor
     public typealias QJFont = NSFont
     public typealias QJView = NSView
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS) //|| os(tvOS)
     import UIKit
     public typealias QJViewController = UIViewController
     public typealias QJColor = UIColor
