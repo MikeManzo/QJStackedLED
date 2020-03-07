@@ -20,6 +20,7 @@
     public typealias QJView = UIView
 #endif
 */
+
 #if canImport(AppKit)
     import AppKit
     public typealias QJViewController = NSViewController
@@ -33,6 +34,7 @@
     public typealias QJFont = UIFont
     public typealias QJView = UIView
 #endif
+
 /// A view for showing a single number on an LED display
 @IBDesignable
 open class QJStackedLED: QJView {
