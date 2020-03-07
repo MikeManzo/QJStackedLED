@@ -5,7 +5,7 @@
 //  Created by Mike Manzo on 02/02/20.
 //  Copyright © 2020 Mike Manzo. All rights reserved.
 //
-
+/*
 #if os(macOS)
     import AppKit
     public typealias QJViewController = NSViewController
@@ -19,7 +19,20 @@
     public typealias QJFont = UIFont
     public typealias QJView = UIView
 #endif
-
+*/
+#if canImport(AppKit)
+    import AppKit
+    public typealias QJViewController = NSViewController
+    public typealias QJColor = NSColor
+    public typealias QJFont = NSFont
+    public typealias QJView = NSView
+#elseif canImport(UIKit)
+    import UIKit
+    public typealias QJViewController = UIViewController
+    public typealias QJColor = UIColor
+    public typealias QJFont = UIFont
+    public typealias QJView = UIView
+#endif
 /// A view for showing a single number on an LED display
 @IBDesignable
 open class QJStackedLED: QJView {
